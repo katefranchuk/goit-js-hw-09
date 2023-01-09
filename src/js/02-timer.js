@@ -20,6 +20,7 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0].getTime() <= Date.now()) {
       Notify.failure('Please choose a date in the future');
+
       //alert('Please choose a date in the future');
     } else {
       btnStart.disabled = false;
@@ -41,7 +42,7 @@ function onBtnStartClick() {
     //console.log(flatpickrObj.selectedDates[0] - flatpickrObj.now);
     getValues(convertMs(difference));
 
-    if (difference <= 1000) { //???????????
+    if (difference <= 1000) { //??????????? чому не 0
       clearInterval(intervalId);
       btnStart.disabled = false;
       return;
