@@ -39,23 +39,23 @@ function onBtnStartClick() {
     btnStart.disabled = true;
     const difference = flatpickrObj.selectedDates[0] - Date.now();
     console.log(difference);
-    //console.log(flatpickrObj.selectedDates[0] - flatpickrObj.now);
-    getValues(convertMs(difference));
 
-    if (difference <= 1000) { //??????????? чому не 0
+    if (difference <= 0) {
       clearInterval(intervalId);
       btnStart.disabled = false;
       return;
     }
-    
+
+    getValues(convertMs(difference));
+
   }, 1000);
 }
 
 function getValues({ days, hours, minutes, seconds }) {
-timerDaysRef.textContent = addLeadingZero(days);
-timerHoursRef.textContent = addLeadingZero(hours);
-timerMinutesRef.textContent = addLeadingZero(minutes);
-timerSecondsRef.textContent = addLeadingZero(seconds);
+  timerDaysRef.textContent = addLeadingZero(days);
+  timerHoursRef.textContent = addLeadingZero(hours);
+  timerMinutesRef.textContent = addLeadingZero(minutes);
+  timerSecondsRef.textContent = addLeadingZero(seconds);
 }
 
 function addLeadingZero(value) {
